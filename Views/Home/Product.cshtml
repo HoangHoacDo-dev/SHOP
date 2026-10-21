@@ -1,0 +1,42 @@
+@model IEnumerable<SHOP.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>DANH SÁCH SẢN PHẨM</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên sản phẩm</th>
+                <th>Mã danh mục</th>
+                <th>Giá</th>
+                <th>Tồn kho</th>
+                <th>Tên file ảnh</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.Price.ToString("N0") đ</td>
+                    <td>@item.StockQuantity</td>
+                    <td>@item.ImageFileName</td>
+                    <td>
+                        @(item.IsActive ? "Đang bán" : "Ngừng bán")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Index">Về trang chủ</a>
+</div>

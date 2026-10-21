@@ -1,0 +1,35 @@
+@model IEnumerable<SHOP.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Danh sách hóa đơn";
+}
+
+<div class="container mt-4">
+    <h2>DANH SÁCH HÓA ĐƠN</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Mã hóa đơn</th>
+                <th>Mã nhân viên</th>
+                <th>Ngày lập</th>
+                <th>Tổng tiền</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                    <td>@item.EmployeeId</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.CustomerPhone</td>
+                    <td>@item.TotalAmount.ToString("N0") đ</td>
+                </tr>
+            }
+        </tbody>
+
+    <a asp-action="Index">Về trang chủ</a>
+</div>

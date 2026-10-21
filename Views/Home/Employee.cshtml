@@ -1,0 +1,40 @@
+@model IEnumerable<SHOP.Models.Employee>
+
+@{
+    ViewData["Title"] = "Danh sách nhân viên";
+}
+
+<div class="container mt-4">
+    <h2>DANH SÁCH NHÂN VIÊN</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Mã NV</th>
+                <th>Họ và tên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>UserId</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>@(item.UserId ?? "Chưa liên kết")</td>
+                    <td>
+                        @(item.IsActive ? "Đang làm việc" : "Ngừng hoạt động")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Index">Về trang chủ</a>
+</div>

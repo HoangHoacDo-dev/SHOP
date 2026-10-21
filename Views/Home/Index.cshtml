@@ -1,8 +1,256 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+
+@{
+    ViewData["Title"] = "Trang chủ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .shop-hero {
+        background: linear-gradient(135deg, #172554, #2563eb);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 28px;
+    }
+
+    .shop-hero h1 {
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .shop-stat {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        transition: transform 0.2s;
+        height: 100%;
+    }
+
+    .shop-stat:hover {
+        transform: translateY(-4px);
+    }
+
+    .shop-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .shop-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .shop-link:hover {
+        color: inherit;
+    }
+
+    .shop-section-title {
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+</style>
+
+<div class="shop-hero">
+    <span class="badge bg-info text-dark mb-3">HỆ THỐNG QUẢN LÝ</span>
+
+    <h1>
+        <i class="fas fa-store me-2"></i>
+        Chào mừng đến với SHOPHOACDO
+    </h1>
+
+    <p class="mb-4">
+        Hệ thống hỗ trợ quản lý danh mục sản phẩm, hàng hóa,
+        nhân viên và hóa đơn bán hàng một cách thuận tiện.
+    </p>
+
+    <a asp-controller="Home"
+       asp-action="Product"
+       class="btn btn-light text-primary fw-bold">
+        <i class="fas fa-box-open me-2"></i>
+        Xem danh sách sản phẩm
+    </a>
+</div>
+
+<!-- THỐNG KÊ TỔNG QUAN -->
+<h4 class="shop-section-title">Tổng quan hệ thống</h4>
+
+<div class="row g-3 mb-4">
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <a asp-controller="Home"
+           asp-action="Category"
+           class="shop-link">
+            <div class="card shop-stat">
+                <div class="card-body">
+                    <div class="shop-icon bg-primary-subtle text-primary">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3 class="fw-bold">03</h3>
+                    <p class="text-muted mb-0">Danh mục sản phẩm mẫu</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <a asp-controller="Home"
+           asp-action="Product"
+           class="shop-link">
+            <div class="card shop-stat">
+                <div class="card-body">
+                    <div class="shop-icon bg-success-subtle text-success">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="fw-bold">04</h3>
+                    <p class="text-muted mb-0">Sản phẩm mẫu</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <a asp-controller="Home"
+           asp-action="Employee"
+           class="shop-link">
+            <div class="card shop-stat">
+                <div class="card-body">
+                    <div class="shop-icon bg-warning-subtle text-warning">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="fw-bold">03</h3>
+                    <p class="text-muted mb-0">Nhân viên mẫu</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <a asp-controller="Home"
+           asp-action="Invoice"
+           class="shop-link">
+            <div class="card shop-stat">
+                <div class="card-body">
+                    <div class="shop-icon bg-danger-subtle text-danger">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3 class="fw-bold">02</h3>
+                    <p class="text-muted mb-0">Hóa đơn mẫu</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<!-- CHỨC NĂNG CHÍNH -->
+<h4 class="shop-section-title">Chức năng chính</h4>
+
+<div class="row g-3">
+
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fas fa-boxes-stacked text-primary me-2"></i>
+                    Quản lý sản phẩm
+                </h5>
+
+                <p class="text-muted">
+                    Theo dõi thông tin sản phẩm, danh mục,
+                    giá bán, số lượng tồn kho và trạng thái kinh doanh.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="Category"
+                   class="btn btn-outline-primary btn-sm me-2">
+                    Danh mục
+                </a>
+
+                <a asp-controller="Home"
+                   asp-action="Product"
+                   class="btn btn-primary btn-sm">
+                    Danh sách sản phẩm
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fas fa-user-tie text-success me-2"></i>
+                    Quản lý nhân viên
+                </h5>
+
+                <p class="text-muted">
+                    Xem thông tin liên hệ, tài khoản liên kết
+                    và trạng thái hoạt động của nhân viên.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="Employee"
+                   class="btn btn-success btn-sm">
+                    Xem nhân viên
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fas fa-receipt text-warning me-2"></i>
+                    Quản lý hóa đơn
+                </h5>
+
+                <p class="text-muted">
+                    Theo dõi ngày lập hóa đơn, thông tin khách hàng,
+                    nhân viên phụ trách và tổng tiền thanh toán.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="Invoice"
+                   class="btn btn-warning btn-sm">
+                    Xem hóa đơn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fas fa-list-check text-info me-2"></i>
+                    Chi tiết hóa đơn
+                </h5>
+
+                <p class="text-muted">
+                    Xem các sản phẩm được bán trong từng hóa đơn,
+                    số lượng, đơn giá và thành tiền.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="InvoiceDetail"
+                   class="btn btn-info btn-sm text-white">
+                    Xem chi tiết
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="alert alert-light border mt-4 mb-0">
+    <i class="fas fa-info-circle text-primary me-2"></i>
+    <strong>Lưu ý:</strong>
+    Các số liệu trên trang chủ là dữ liệu mẫu phục vụ bài tập.
+    Hệ thống hiện chưa kết nối cơ sở dữ liệu.
 </div>

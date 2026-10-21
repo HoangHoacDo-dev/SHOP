@@ -95,3 +95,4 @@ D:\DIHOC\LAPTRINHWED\SHOP\obj\Debug\net10.0\refint\SHOP.dll
 D:\DIHOC\LAPTRINHWED\SHOP\obj\Debug\net10.0\SHOP.pdb
 D:\DIHOC\LAPTRINHWED\SHOP\obj\Debug\net10.0\SHOP.genruntimeconfig.cache
 D:\DIHOC\LAPTRINHWED\SHOP\obj\Debug\net10.0\ref\SHOP.dll
+D:\DIHOC\LAPTRINHWED\SHOP\obj\Debug\net10.0\SHOP.sourcelink.json
