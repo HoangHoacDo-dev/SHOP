@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SHOP</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SHOP.styles.css" asp-append-version="true" />
+    <!-- Thêm FontAwesome cho các icon (Tùy chọn) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS tùy chỉnh thêm */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao */
+            background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
+        }
+        
+        main {
+            flex: 1; /* Cho phép phần main mở rộng để đẩy footer xuống dưới */
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        /* Hiệu ứng hover cho link navbar */
+        .navbar-dark .navbar-nav .nav-link:hover, 
+        .navbar-dark .navbar-nav .nav-link:focus {
+            color: #17a2b8 !important; /* Màu xanh lơ khi hover */
+        }
+
+        /* Tùy chỉnh Footer */
+        .footer {
+            background-color: #343a40;
+            color: white !important;
+            padding: 1.5rem 0;
+            border-top: none !important;
+        }
+        
+        .footer a {
+            color: #17a2b8;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Nút tìm kiếm / Giỏ hàng trên navbar (ví dụ) */
+        .navbar-actions .btn {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Đổi thành navbar tối màu -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3 sticky-top">
+            <div class="container"> <!-- Dùng container thay vì container-fluid để căn giữa đẹp hơn -->
+                <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-shopping-cart me-2"></i>SHOP <!-- Thêm icon giỏ hàng -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Gioithieu">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Nhacungcap">Nhà cung cấp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Phần bên phải navbar (Ví dụ: Giỏ hàng, Đăng nhập) -->
+                    <div class="navbar-actions">
+                        <a href="#" class="btn btn-outline-info btn-sm">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <a href="#" class="btn btn-info btn-sm text-white">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Phần thân nội dung chính -->
+    <div class="container bg-white p-4 rounded shadow-sm">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <span>&copy; 2026 - <strong>SHOP</strong>. All rights reserved. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a></span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
